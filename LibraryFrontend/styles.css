@@ -72,6 +72,11 @@ h1, h2{
     color: white;
 }
 
+.task-checkbox{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .name.completed{
     text-decoration: line-through;
     opacity: 0.6;

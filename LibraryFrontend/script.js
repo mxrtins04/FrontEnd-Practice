@@ -1,3 +1,4 @@
+
 let searchTask = document.getElementById("search-task")
 console.log(searchTask);
 let title = document.getElementsByClassName("title")
@@ -33,10 +34,10 @@ addTaskForm.addEventListener("submit",(e)=>{
     console.log(value);
     if(value){
         alltasks.push(value);   
-       let {newli,firstSpanTag,secondSpanTag}= createNewElement()
-       addCreatedElements(newli,firstSpanTag,secondSpanTag)
+       let {newli,checkbox,firstSpanTag,secondSpanTag}= createNewElement()
+       addCreatedElements(newli,checkbox,firstSpanTag,secondSpanTag)
        inputvalues(firstSpanTag,secondSpanTag,value)
-       styleNewElement(firstSpanTag,secondSpanTag)
+       styleNewElement(checkbox,firstSpanTag,secondSpanTag)
        taskList.querySelector("ul").appendChild(newli)
        addTaskForm.querySelector("input").value = ""
        saveTasks()
@@ -67,10 +68,10 @@ function loadTasks(){
     if(savedTasks){
         alltasks = JSON.parse(savedTasks)
         alltasks.forEach(task => {
-            let {newli,firstSpanTag,secondSpanTag}= createNewElement()
-            addCreatedElements(newli,firstSpanTag,secondSpanTag)
+            let {newli,checkbox,firstSpanTag,secondSpanTag}= createNewElement()
+            addCreatedElements(newli,checkbox,firstSpanTag,secondSpanTag)
             inputvalues(firstSpanTag,secondSpanTag,task)
-            styleNewElement(firstSpanTag,secondSpanTag)
+            styleNewElement(checkbox,firstSpanTag,secondSpanTag)
             taskList.querySelector("ul").appendChild(newli)
         })
     }
@@ -83,12 +84,15 @@ function saveTasks(){
 
 function createNewElement(){
     const newli = document.createElement("li")
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
     const firstSpanTag = document.createElement("span")
     const secondSpanTag = document.createElement("span")
-    return {newli,firstSpanTag,secondSpanTag}
+    return {newli,checkbox,firstSpanTag,secondSpanTag}
 }
 
-function addCreatedElements(newli,firstSpanTag,secondSpanTag){
+function addCreatedElements(newli,checkbox,firstSpanTag,secondSpanTag){
+   newli.appendChild(checkbox)
    newli.appendChild(firstSpanTag)
    newli.appendChild(secondSpanTag)
 }
@@ -98,15 +102,17 @@ function inputvalues(firstSpanTag,secondSpanTag ,value){
     secondSpanTag.textContent = "delete"
 }
 
-function styleNewElement(firstSpanTag,secondSpanTag){
+function styleNewElement(checkbox,firstSpanTag,secondSpanTag){
+checkbox.classList.add("task-checkbox")
 firstSpanTag.classList.add("name")
 secondSpanTag.classList.add("delete")
 }
 
 taskList.addEventListener("click",(e)=>{
     console.log(e);
-    if(e.target.classList.contains("name")){
-        e.target.classList.toggle("completed")
+    if(e.target.classList.contains("task-checkbox")){
+        const nameSpan = e.target.nextElementSibling
+        nameSpan.classList.toggle("completed")
     }
 })
 

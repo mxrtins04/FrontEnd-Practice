@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background-color: rgb(60, 60, 60); */
+    
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 189, 67);
+    padding: 10px 20px;
+}
+
+.navLinks ul{
+    list-style: none;
+    padding: 
+}
+.navLinks ul li{
+    float: left;
+}
+
+.products{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr
+}
+
+.products img{
+    width: 450px;
+    background-color: whitesmoke;
+    }
+
+.products p {
+   max-width: 450px;
+   word-wrap: break-word; 
+    background-color: whitesmoke;
+    
+}
+
+

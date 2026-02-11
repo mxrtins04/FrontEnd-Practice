@@ -54,7 +54,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 80px 60px;
-  background: linear-gradient(135deg, #e6e9f8 0%, #c7ccf5 50%, #a8aff2 100%);
+  background: linear-gradient(135deg, #5b5fef 0%, #7c7ff0 50%, #9fa2f2 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 

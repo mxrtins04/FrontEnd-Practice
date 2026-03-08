@@ -25,6 +25,9 @@ export const authService = {
 
   async register(username, email, password) {
     try {
+      console.log('Attempting registration to:', `${API_BASE_URL}/register`);
+      console.log('Sending data:', { username, email, password });
+      
       const response = await fetch(`${API_BASE_URL}/register`, {
         method: 'POST',
         headers: {
@@ -33,11 +36,17 @@ export const authService = {
         body: JSON.stringify({ username, email, password }),
       });
       
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+      
       if (!response.ok) {
-        throw new Error('Registration failed');
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`Registration failed: ${response.status} - ${errorText}`);
       }
       
       const data = await response.json();
+      console.log('Registration successful:', data);
       return data;
     } catch (error) {
       console.error('Registration error:', error);

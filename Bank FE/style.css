@@ -54,8 +54,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 80px 60px;
-  background: linear-gradient(135deg, #5b5fef 0%, #7c7ff0 50%, #9fa2f2 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  background: linear-gradient(135deg, #5b5fef 50%, #7c7ff0 50%, #9fa2f2 100%);
 }
 
 .hero-text {
@@ -67,13 +66,18 @@ body {
   margin-bottom: 20px;
 }
 
-.hero-text p {
+ .hero-text p {
   margin-bottom: 25px;
-  color: #666;
-}
+  color: rgba(37, 37, 37, 0.264);
+  font-size: 16px;
+  font-weight: bold;
+} 
 
 .hero-buttons button {
   margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .hero-image .image-placeholder {
@@ -107,6 +111,23 @@ body {
   border-radius: 6px;
 }
 
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary {
+  background: #5b5fef;
+  color: rgb(215, 224, 236);
+}
+
+.btn-primary:hover {
+  opacity: 30%;
+}
+
+.btn-outline {
+  color: rgb(215, 224, 236);
+}
 
 .benefits {
   padding: 60px;
